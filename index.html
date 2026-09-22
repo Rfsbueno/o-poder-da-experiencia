@@ -1,0 +1,1320 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>O Poder da Experiência | Treinamento Presencial em Alphaville</title>
+    <meta
+      name="description"
+      content="Treinamento presencial e imersivo com Rodrigo Bueno para corrigir falhas na jornada do cliente, proteger receita e transformar atendimento em fidelização."
+    />
+    <style>
+      :root {
+        --ink: #07101f;
+        --deep: #020712;
+        --panel: #07172d;
+        --panel-2: #0b2340;
+        --paper: #f4f8ff;
+        --paper-2: #dce8f7;
+        --muted: #aab9ce;
+        --gold: #ff4d1f;
+        --gold-2: #ff8a2a;
+        --teal: #46a6ff;
+        --line: rgba(244, 248, 255, 0.14);
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+        --radius: 8px;
+        --max: 1160px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--paper);
+        background: var(--deep);
+        line-height: 1.55;
+        overflow-x: hidden;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(2, 7, 18, 0.9);
+        backdrop-filter: blur(16px);
+      }
+
+      .topbar-inner {
+        width: min(var(--max), calc(100% - 32px));
+        margin: 0 auto;
+        min-height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand {
+        font-weight: 850;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      .nav-meta {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 22px;
+        border: 1px solid rgba(255, 112, 38, 0.62);
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, #ff8a2a 0%, #ff4d1f 58%, #d92f16 100%);
+        color: #fff8f2;
+        font-weight: 850;
+        text-decoration: none;
+        box-shadow: 0 14px 30px rgba(255, 77, 31, 0.25);
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+        white-space: nowrap;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 42px rgba(255, 77, 31, 0.36);
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--paper);
+        border-color: rgba(247, 244, 235, 0.22);
+        box-shadow: none;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        min-height: calc(100svh - 68px);
+        display: grid;
+        align-items: center;
+        padding: 72px 0 56px;
+        background:
+          linear-gradient(90deg, rgba(2, 7, 18, 0.98) 0%, rgba(5, 17, 38, 0.9) 42%, rgba(5, 17, 38, 0.3) 100%),
+          url("assets/rodrigo-bueno-treinamento.png") center right / min(52vw, 620px) auto no-repeat,
+          linear-gradient(135deg, rgba(4, 46, 94, 0.78), rgba(2, 7, 18, 0.9)),
+          radial-gradient(circle at 80% 18%, rgba(70, 166, 255, 0.22), transparent 34%),
+          var(--deep);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 130px;
+        background: linear-gradient(0deg, var(--deep), transparent);
+        pointer-events: none;
+      }
+
+      .wrap {
+        width: min(var(--max), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .hero-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 700px) minmax(260px, 1fr);
+        gap: 38px;
+        align-items: end;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 18px;
+        color: var(--gold-2);
+        font-size: 0.82rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 2px;
+        background: var(--gold);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin-bottom: 22px;
+        font-size: clamp(2.75rem, 6vw, 6.4rem);
+        line-height: 0.93;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .hero-lead {
+        max-width: 650px;
+        color: #d8e6f7;
+        font-size: clamp(1.08rem, 1.8vw, 1.34rem);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 32px;
+      }
+
+      .event-strip {
+        margin-top: 36px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: 720px;
+        border: 1px solid var(--line);
+        background: rgba(7, 23, 45, 0.76);
+        box-shadow: var(--shadow);
+      }
+
+      .event-item {
+        min-height: 92px;
+        padding: 18px;
+        border-right: 1px solid var(--line);
+      }
+
+      .event-item:last-child {
+        border-right: 0;
+      }
+
+      .label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--teal);
+        font-size: 0.74rem;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      .value {
+        font-size: 1.04rem;
+        font-weight: 780;
+      }
+
+      .hero-note {
+        align-self: end;
+        padding: 20px;
+        border: 1px solid var(--line);
+        background: rgba(2, 7, 18, 0.76);
+        color: var(--paper-2);
+        font-size: 0.98rem;
+      }
+
+      section {
+        padding: 86px 0;
+      }
+
+      .section-light {
+        color: var(--paper);
+        background: linear-gradient(135deg, #020712 0%, #07172d 54%, #0b2d55 100%);
+      }
+
+      .section-soft {
+        color: var(--paper);
+        background: linear-gradient(180deg, #061226 0%, #020712 100%);
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 52px;
+        align-items: start;
+        margin-bottom: 42px;
+      }
+
+      .kicker {
+        margin-bottom: 14px;
+        color: #c93617;
+        font-size: 0.8rem;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin-bottom: 16px;
+        font-size: clamp(2rem, 4vw, 4.15rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .section-head p,
+      .wide-copy {
+        color: var(--muted);
+        font-size: 1.08rem;
+      }
+
+      .loss-grid,
+      .learn-grid,
+      .audience-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .tile {
+        min-height: 190px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(7, 23, 45, 0.72);
+      }
+
+      .tile.dark {
+        border-color: var(--line);
+        background: var(--panel);
+      }
+
+      .tile strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.08rem;
+      }
+
+      .tile p {
+        margin: 0;
+        color: inherit;
+        opacity: 0.78;
+      }
+
+      .quote-band {
+        padding: 78px 0;
+        background: linear-gradient(135deg, #020712 0%, #07172d 52%, #0b2d55 100%);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .quote {
+        max-width: 980px;
+        font-size: clamp(2rem, 4.4vw, 4.8rem);
+        line-height: 1;
+        font-weight: 880;
+        letter-spacing: 0;
+      }
+
+      .quote span {
+        color: #ff8a2a;
+      }
+
+      .program {
+        display: grid;
+        grid-template-columns: 0.7fr 1.3fr;
+        gap: 44px;
+        align-items: start;
+      }
+
+      .sticky-box {
+        position: sticky;
+        top: 94px;
+        padding: 26px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        border-radius: var(--radius);
+      }
+
+      .module-list {
+        display: grid;
+        gap: 12px;
+        counter-reset: module;
+      }
+
+      .module {
+        counter-increment: module;
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 18px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(7, 23, 45, 0.72);
+      }
+
+      .module::before {
+        content: counter(module, decimal-leading-zero);
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        border: 1px solid rgba(70, 166, 255, 0.28);
+        border-radius: 999px;
+        color: #c93617;
+        font-weight: 900;
+      }
+
+      .module h3 {
+        margin-bottom: 8px;
+        font-size: 1.12rem;
+      }
+
+      .module p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+        gap: 42px;
+        align-items: center;
+      }
+
+      .media-frame {
+        overflow: hidden;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .media-frame img {
+        aspect-ratio: 4 / 5;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      .media-frame.executive img {
+        object-position: center 18%;
+      }
+
+      .bio-list,
+      .outcomes {
+        display: grid;
+        gap: 12px;
+        margin: 26px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .bio-list li,
+      .outcomes li {
+        padding: 14px 0 14px 34px;
+        border-bottom: 1px solid rgba(247, 244, 235, 0.12);
+        position: relative;
+        color: var(--paper-2);
+      }
+
+      .bio-list li::before,
+      .outcomes li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 21px;
+        width: 12px;
+        height: 12px;
+        border: 2px solid var(--gold);
+        border-radius: 50%;
+      }
+
+      .outcomes li {
+        color: var(--paper-2);
+        border-bottom-color: rgba(244, 248, 255, 0.12);
+      }
+
+      .offer {
+        background:
+          linear-gradient(90deg, rgba(2, 7, 18, 0.98), rgba(7, 23, 45, 0.82)),
+          url("assets/rodrigo-bueno-executivo.png") right 14% center / min(40vw, 480px) auto no-repeat,
+          linear-gradient(135deg, #020712, #0b2d55);
+      }
+
+      .offer-box {
+        max-width: 680px;
+      }
+
+      .offer h2 {
+        color: var(--paper);
+      }
+
+      .offer p {
+        color: var(--paper-2);
+        font-size: 1.12rem;
+      }
+
+      .info-panel {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        border: 1px solid var(--line);
+        background: var(--panel);
+      }
+
+      .info-panel div {
+        padding: 22px;
+        border-right: 1px solid var(--line);
+      }
+
+      .info-panel div:last-child {
+        border-right: 0;
+      }
+
+      .final-cta {
+        text-align: center;
+        background: linear-gradient(135deg, #020712 0%, #07172d 52%, #0b2d55 100%);
+        color: var(--paper);
+      }
+
+      .final-cta h2 {
+        max-width: 940px;
+        margin-inline: auto;
+      }
+
+      .final-cta p {
+        max-width: 720px;
+        margin-inline: auto;
+        color: var(--muted);
+        font-size: 1.12rem;
+      }
+
+      details {
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(7, 23, 45, 0.72);
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 850;
+      }
+
+      details p {
+        margin: 12px 0 0;
+        color: var(--muted);
+      }
+
+      .price-section {
+        background: linear-gradient(135deg, #061226 0%, #020712 56%, #0b2d55 100%);
+      }
+
+      .diagnostic {
+        background: linear-gradient(135deg, #020712 0%, #07172d 48%, #0b2d55 100%);
+      }
+
+      .diagnostic-box,
+      .bonus-box {
+        padding: 34px;
+        border: 1px solid rgba(255, 112, 38, 0.24);
+        border-radius: var(--radius);
+        background: rgba(7, 23, 45, 0.78);
+        box-shadow: var(--shadow);
+      }
+
+      .diagnostic-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .quiz {
+        display: grid;
+        gap: 14px;
+      }
+
+      .quiz-question {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(2, 7, 18, 0.52);
+      }
+
+      .quiz-question p {
+        margin-bottom: 12px;
+        color: var(--paper);
+        font-weight: 800;
+      }
+
+      .quiz-options {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .quiz-options label {
+        cursor: pointer;
+      }
+
+      .quiz-options input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .quiz-options span {
+        display: grid;
+        min-height: 42px;
+        place-items: center;
+        padding: 8px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        color: var(--paper-2);
+        font-weight: 800;
+        text-align: center;
+      }
+
+      .quiz-options input:checked + span {
+        border-color: rgba(255, 112, 38, 0.78);
+        background: linear-gradient(180deg, #ff8a2a 0%, #ff4d1f 100%);
+        color: #fff;
+      }
+
+      .diagnostic-result {
+        display: none;
+        margin-top: 18px;
+        padding: 20px;
+        border: 1px solid rgba(255, 112, 38, 0.44);
+        border-radius: var(--radius);
+        background: rgba(2, 7, 18, 0.82);
+      }
+
+      .diagnostic-result.is-visible {
+        display: block;
+      }
+
+      .diagnostic-result strong {
+        display: block;
+        margin-bottom: 8px;
+        color: #ff8a2a;
+        font-size: 1.2rem;
+      }
+
+      .bonus-section {
+        background: linear-gradient(180deg, #061226 0%, #020712 100%);
+      }
+
+      .bonus-box {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1.2fr);
+        gap: 30px;
+        align-items: center;
+      }
+
+      .bonus-tag {
+        display: inline-flex;
+        width: fit-content;
+        margin-bottom: 16px;
+        padding: 8px 12px;
+        border: 1px solid rgba(70, 166, 255, 0.28);
+        border-radius: var(--radius);
+        color: var(--teal);
+        font-weight: 900;
+        text-transform: uppercase;
+        font-size: 0.76rem;
+      }
+
+      .bonus-box p {
+        color: var(--paper-2);
+        font-size: 1.1rem;
+      }
+
+      .price-box {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.72fr);
+        gap: 34px;
+        align-items: center;
+        padding: 34px;
+        border: 1px solid rgba(255, 112, 38, 0.28);
+        border-radius: var(--radius);
+        background: rgba(7, 23, 45, 0.78);
+        box-shadow: var(--shadow);
+      }
+
+      .price-copy h2 {
+        max-width: 760px;
+      }
+
+      .price-copy p {
+        color: var(--paper-2);
+        font-size: 1.12rem;
+      }
+
+      .price-card {
+        padding: 28px;
+        border: 1px solid rgba(244, 248, 255, 0.14);
+        border-radius: var(--radius);
+        background: rgba(2, 7, 18, 0.76);
+      }
+
+      .old-price {
+        display: block;
+        color: var(--muted);
+        font-size: 1rem;
+        font-weight: 750;
+      }
+
+      .old-price strong {
+        text-decoration: line-through;
+        text-decoration-thickness: 2px;
+        color: #d2d9e6;
+      }
+
+      .new-price {
+        display: block;
+        margin: 6px 0 16px;
+        color: #fff;
+        font-size: clamp(3rem, 6vw, 5.6rem);
+        line-height: 0.92;
+        font-weight: 920;
+      }
+
+      .price-card p {
+        margin-bottom: 18px;
+        color: var(--paper-2);
+      }
+
+      footer {
+        padding: 28px 0;
+        color: var(--muted);
+        background: #020712;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 920px) {
+        .hero {
+          padding-top: 44px;
+          background:
+            linear-gradient(180deg, rgba(2, 7, 18, 0.7), rgba(2, 7, 18, 1) 68%),
+            url("assets/rodrigo-bueno-treinamento.png") top center / 100% auto no-repeat,
+            linear-gradient(135deg, #0b2d55, #020712),
+            var(--deep);
+        }
+
+        .hero-grid,
+        .section-head,
+        .program,
+        .split,
+        .diagnostic-grid,
+        .bonus-box,
+        .price-box {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-grid {
+          padding-top: min(68vw, 520px);
+        }
+
+        .hero-note,
+        .sticky-box {
+          position: static;
+        }
+
+        .loss-grid,
+        .learn-grid,
+        .audience-grid,
+        .faq-grid,
+        .info-panel {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .info-panel div:nth-child(2) {
+          border-right: 0;
+        }
+
+        .info-panel div:nth-child(-n + 2) {
+          border-bottom: 1px solid var(--line);
+        }
+
+        .offer {
+          background:
+            linear-gradient(180deg, rgba(2, 7, 18, 0.82), rgba(2, 7, 18, 1) 64%),
+            url("assets/rodrigo-bueno-executivo.png") top right / min(72vw, 420px) auto no-repeat,
+            #020712;
+        }
+
+        .offer-box {
+          padding-top: min(58vw, 380px);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .topbar-inner {
+          min-height: 62px;
+        }
+
+        .nav-meta span {
+          display: none;
+        }
+
+        .topbar .button {
+          min-height: 40px;
+          padding-inline: 14px;
+          font-size: 0.84rem;
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 34px 0 38px;
+        }
+
+        .hero-grid {
+          padding-top: min(68vw, 360px);
+        }
+
+        h1 {
+          font-size: clamp(2.5rem, 13vw, 4.2rem);
+        }
+
+        section {
+          padding: 64px 0;
+        }
+
+        .event-strip,
+        .loss-grid,
+        .learn-grid,
+        .audience-grid,
+        .faq-grid,
+        .info-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .event-strip,
+        .hero-note {
+          display: none;
+        }
+
+        .info-panel div {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .info-panel div:last-child {
+          border-bottom: 0;
+        }
+
+        .button {
+          width: 100%;
+          white-space: normal;
+          text-align: center;
+        }
+
+        .module {
+          grid-template-columns: 1fr;
+        }
+
+        .price-box {
+          padding: 24px;
+        }
+
+        .diagnostic-box,
+        .bonus-box {
+          padding: 24px;
+        }
+
+        .quiz-options {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">O Poder da Experiência</div>
+        <div class="nav-meta">
+          <span>17 de outubro | Alphaville</span>
+          <a class="button" href="https://chk.eduzz.com/39ZRR4OEWE">Garantir minha vaga</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="eyebrow">17 de outubro | Alphaville | imersão presencial</p>
+            <h1>O Poder da Experiência</h1>
+            <p class="hero-lead">
+              Se o cliente chega interessado, compra uma vez e depois desaparece, talvez o problema não esteja no preço.
+              Pode estar na jornada confusa, no atendimento inconsistente e nos pequenos atritos que fazem sua empresa
+              perder dinheiro sem perceber.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="https://chk.eduzz.com/39ZRR4OEWE">
+                Garantir minha vaga
+              </a>
+              <a class="button secondary" href="#programa">Ver conteúdo do dia</a>
+            </div>
+            <div class="event-strip" aria-label="Informações principais do treinamento">
+              <div class="event-item">
+                <span class="label">Data</span>
+                <span class="value">17 de outubro de 2026</span>
+              </div>
+              <div class="event-item">
+                <span class="label">Horário</span>
+                <span class="value">8h30 às 19h</span>
+              </div>
+              <div class="event-item">
+                <span class="label">Local</span>
+                <span class="value">Alphaville, SP</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-note">
+            Um dia completo para colocar a jornada do cliente na mesa, enxergar onde a relação quebra e aprender como
+            transformar atendimento em confiança, recompra, indicação e crescimento.
+          </aside>
+        </div>
+      </section>
+
+      <section class="section-light">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">O vazamento que quase ninguém mede</p>
+              <h2>Sua empresa pode estar perdendo clientes depois de já ter pago para conquistá-los.</h2>
+            </div>
+            <p>
+              O marketing gera o lead. O comercial convence. A venda acontece. Mas, depois disso, o cliente encontra
+              demora, respostas diferentes, falta de acompanhamento, processos confusos e a sensação de que ninguém é
+              realmente responsável por ele.
+            </p>
+          </div>
+
+          <div class="loss-grid">
+            <article class="tile">
+              <strong>O cliente não reclama. Ele some.</strong>
+              <p>Ele para de responder, não recompra, escolhe o concorrente e aparece no relatório apenas como “cliente perdido”.</p>
+            </article>
+            <article class="tile">
+              <strong>O problema pequeno vira prova pública.</strong>
+              <p>Uma demora, uma transferência mal feita ou uma promessa quebrada pode virar avaliação negativa e afastar novos compradores.</p>
+            </article>
+            <article class="tile">
+              <strong>A equipe trabalha mais para compensar falhas.</strong>
+              <p>Quando a jornada é mal desenhada, vendas novas precisam cobrir churn, baixa recompra e perda de confiança.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-soft">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">O que acontece na cabeça do cliente</p>
+              <h2>Antes de ir embora, ele já começou a desconfiar.</h2>
+            </div>
+            <p>
+              A perda quase nunca começa no cancelamento. Ela começa quando o cliente sente que precisa insistir demais,
+              explicar de novo, cobrar retorno, aceitar desculpas internas ou torcer para alguém resolver.
+            </p>
+          </div>
+
+          <div class="loss-grid">
+            <article class="tile">
+              <strong>“Se para comprar já é difícil, imagine quando eu tiver um problema.”</strong>
+              <p>A jornada de compra já antecipa a experiência que o cliente espera receber depois.</p>
+            </article>
+            <article class="tile">
+              <strong>“Ninguém aqui sabe o que foi combinado comigo.”</strong>
+              <p>Quando áreas não se conversam, o cliente sente desorganização mesmo que todos estejam ocupados.</p>
+            </article>
+            <article class="tile">
+              <strong>“Eu não deveria ter que correr atrás disso.”</strong>
+              <p>Cada esforço extra reduz confiança, aumenta irritação e torna a próxima compra menos provável.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote-band">
+        <div class="wrap">
+          <div class="quote">
+            Atendimento ruim parece problema operacional. <span>Mas quase sempre cobra a conta na receita.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-soft" id="programa">
+        <div class="wrap program">
+          <aside class="sticky-box">
+            <p class="eyebrow">O que você vai dominar</p>
+            <h2>O método para parar de improvisar a experiência do cliente.</h2>
+            <p class="wide-copy">
+              Não é uma palestra motivacional sobre “encantar clientes”. É um treinamento para mapear a jornada real,
+              encontrar os pontos em que sua empresa destrói valor e estruturar ações que aumentam retenção, recompra e reputação.
+            </p>
+            <a class="button" href="https://chk.eduzz.com/39ZRR4OEWE">Garantir minha vaga</a>
+          </aside>
+
+          <div class="module-list">
+            <article class="module">
+              <div>
+                <h3>Experiência do cliente como estratégia de negócio</h3>
+                <p>Como a experiência influencia preço percebido, confiança, indicação, reputação e decisão de recompra.</p>
+              </div>
+            </article>
+            <article class="module">
+              <div>
+                <h3>Jornada do cliente</h3>
+                <p>Como enxergar a empresa como o cliente enxerga: sem organograma, sem desculpas internas e sem ruído entre áreas.</p>
+              </div>
+            </article>
+            <article class="module">
+              <div>
+                <h3>Mapeamento da jornada</h3>
+                <p>Onde clientes desistem, se irritam, perdem confiança, cancelam, reclamam ou deixam de comprar novamente.</p>
+              </div>
+            </article>
+            <article class="module">
+              <div>
+                <h3>Reputação e atendimento público</h3>
+                <p>Como cada falha de atendimento pode alimentar a percepção do mercado antes mesmo de alguém falar com seu vendedor.</p>
+              </div>
+            </article>
+            <article class="module">
+              <div>
+                <h3>Fidelização e retenção</h3>
+                <p>Como sair da dependência de vender sempre para novos clientes e criar motivos reais para o cliente continuar.</p>
+              </div>
+            </article>
+            <article class="module">
+              <div>
+                <h3>Quando a experiência dá errado</h3>
+                <p>Como reagir quando algo falha antes que o problema vire desgaste, exposição pública ou ruptura definitiva.</p>
+              </div>
+            </article>
+            <article class="module">
+              <div>
+                <h3>Indicadores de experiência</h3>
+                <p>Como usar NPS, CSAT, CES e sinais operacionais para detectar risco antes que ele apareça como perda de receita.</p>
+              </div>
+            </article>
+            <article class="module">
+              <div>
+                <h3>Cliente no centro dos processos</h3>
+                <p>Como identificar processos que parecem eficientes internamente, mas tornam a vida do cliente mais difícil.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap split">
+          <div>
+            <p class="eyebrow">Ao final do treinamento</p>
+            <h2>Você não vai mais olhar para atendimento como “suporte”. Vai olhar como ponto crítico de crescimento.</h2>
+            <p class="wide-copy" style="color: var(--paper-2)">
+              Você vai voltar com clareza para investigar onde sua operação cria esforço, onde o cliente perde confiança
+              e quais ajustes podem reduzir perdas silenciosas na jornada.
+            </p>
+            <ul class="outcomes">
+              <li>Quais momentos fazem o cliente pensar “não quero passar por isso de novo”.</li>
+              <li>Onde sua equipe pede esforço demais de quem já decidiu comprar.</li>
+              <li>Quais falhas estão enfraquecendo sua reputação sem aparecer claramente nos números.</li>
+              <li>Onde existem oportunidades reais de recuperar confiança, gerar indicação e aumentar recompra.</li>
+            </ul>
+          </div>
+          <figure class="media-frame">
+            <img src="assets/rodrigo-bueno-treinamento.png" alt="Rodrigo Bueno ministrando treinamento presencial" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section-light">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Para quem é</p>
+              <h2>Para quem cansou de perder cliente sem entender exatamente onde a relação quebrou.</h2>
+            </div>
+            <p>
+              Se sua empresa vende, atende, entrega, cobra, resolve problemas e depende de recompra ou indicação, a
+              jornada do cliente já está impactando seu resultado. A diferença é se você está olhando para isso com método.
+            </p>
+          </div>
+
+          <div class="audience-grid">
+            <article class="tile"><strong>Donos de empresas</strong><p>Para parar de tratar perda de cliente como acaso e começar a proteger receita pela experiência.</p></article>
+            <article class="tile"><strong>Diretores e gestores</strong><p>Para conectar áreas que hoje trabalham separadas, mas entregam uma única experiência para o cliente.</p></article>
+            <article class="tile"><strong>Líderes de atendimento</strong><p>Para sair do modo apagar incêndio e estruturar uma operação que previne atrito antes da reclamação.</p></article>
+            <article class="tile"><strong>Profissionais de atendimento</strong><p>Para quem quer deixar de ser visto apenas como “quem resolve problema” e passar a ser reconhecido como alguém que protege a relação, gera confiança, evita perdas e faz diferença real na experiência do cliente.</p></article>
+            <article class="tile"><strong>Profissionais comerciais</strong><p>Para enxergar que a venda não termina no pagamento e que uma jornada ruim dificulta a próxima venda.</p></article>
+            <article class="tile"><strong>Equipes completas</strong><p>Para alinhar liderança e linha de frente em torno de uma mesma pergunta: o que o cliente está vivendo?</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="diagnostic">
+        <div class="wrap diagnostic-box">
+          <div class="diagnostic-grid">
+            <div>
+              <p class="eyebrow">Diagnóstico rápido</p>
+              <h2>Responda com sinceridade: sua jornada está vendendo ou afastando clientes?</h2>
+              <p class="wide-copy" style="color: var(--paper-2)">
+                São perguntas simples, mas incômodas. Se a maioria delas já acontece na sua empresa, o problema não é
+                pontual. É a experiência pedindo atenção antes de virar perda definitiva.
+              </p>
+            </div>
+
+            <form class="quiz" id="journeyQuiz">
+              <div class="quiz-question">
+                <p>1. Clientes precisam repetir a mesma história para pessoas diferentes?</p>
+                <div class="quiz-options">
+                  <label><input type="radio" name="q1" value="0" /><span>Raramente</span></label>
+                  <label><input type="radio" name="q1" value="1" /><span>Às vezes</span></label>
+                  <label><input type="radio" name="q1" value="2" /><span>Com frequência</span></label>
+                </div>
+              </div>
+
+              <div class="quiz-question">
+                <p>2. O pós-venda depende mais da boa vontade das pessoas do que de processo?</p>
+                <div class="quiz-options">
+                  <label><input type="radio" name="q2" value="0" /><span>Não</span></label>
+                  <label><input type="radio" name="q2" value="1" /><span>Em parte</span></label>
+                  <label><input type="radio" name="q2" value="2" /><span>Sim</span></label>
+                </div>
+              </div>
+
+              <div class="quiz-question">
+                <p>3. Clientes somem, cancelam ou deixam de recomprar sem explicar claramente o motivo?</p>
+                <div class="quiz-options">
+                  <label><input type="radio" name="q3" value="0" /><span>Pouco</span></label>
+                  <label><input type="radio" name="q3" value="1" /><span>Às vezes</span></label>
+                  <label><input type="radio" name="q3" value="2" /><span>Muito</span></label>
+                </div>
+              </div>
+
+              <div class="quiz-question">
+                <p>4. Sua equipe resolve urgências que poderiam ter sido evitadas com uma jornada melhor?</p>
+                <div class="quiz-options">
+                  <label><input type="radio" name="q4" value="0" /><span>Raramente</span></label>
+                  <label><input type="radio" name="q4" value="1" /><span>Às vezes</span></label>
+                  <label><input type="radio" name="q4" value="2" /><span>Todo dia</span></label>
+                </div>
+              </div>
+
+              <button class="button" type="submit">Ver meu diagnóstico</button>
+
+              <div class="diagnostic-result" id="quizResult" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="offer">
+        <div class="wrap offer-box">
+          <p class="eyebrow">Sobre quem conduz</p>
+          <h2>Rodrigo Bueno</h2>
+          <p>
+            Empresário e executivo com mais de duas décadas de experiência em operações de atendimento ao cliente,
+            Customer Experience, vendas, retenção, gestão e transformação operacional.
+          </p>
+          <ul class="bio-list">
+            <li>Atuou à frente de operações de atendimento relevantes e projetos complexos de jornada do cliente.</li>
+            <li>Hoje lidera a DNC Group, com projetos em Customer Experience, crescimento, gestão, tecnologia, vendas e atendimento.</li>
+            <li>No treinamento, transforma experiência prática em conteúdo aplicável para empresários, gestores e profissionais.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bonus-section">
+        <div class="wrap bonus-box">
+          <div>
+            <span class="bonus-tag">Bônus para participantes</span>
+            <h2>Grupo exclusivo no WhatsApp para continuar a conversa depois da imersão.</h2>
+          </div>
+          <div>
+            <p>
+              Quem participa não sai apenas com anotações. Você entra em um grupo exclusivo para participantes, com
+              trocas, provocações, lembretes estratégicos e continuidade do tema após o treinamento.
+            </p>
+            <p>
+              A ideia é simples: manter Customer Experience vivo na sua rotina, para que o conteúdo não fique parado
+              no papel e comece a influenciar decisões reais dentro da empresa.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Informações do treinamento</p>
+              <h2>Um dia para descobrir por que clientes que poderiam ficar acabam indo embora.</h2>
+            </div>
+            <p class="wide-copy" style="color: var(--paper-2)">
+              O que hoje parece “cliente difícil”, “problema pontual” ou “falha de comunicação” pode ser um padrão
+              escondido na jornada. No treinamento, você vai aprender a enxergar esse padrão com mais clareza.
+            </p>
+          </div>
+
+          <div class="info-panel">
+            <div><span class="label">Data</span><span class="value">17 de outubro de 2026</span></div>
+            <div><span class="label">Horário</span><span class="value">8h30 às 19h</span></div>
+            <div><span class="label">Local</span><span class="value">Alphaville, São Paulo</span></div>
+            <div><span class="label">Formato</span><span class="value">Presencial e imersivo</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-light">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Perguntas frequentes</p>
+              <h2>As dúvidas que costumam aparecer antes de uma decisão importante.</h2>
+            </div>
+            <p>
+              Se algum desses pontos já aparece na sua empresa, este treinamento foi desenhado para transformar incômodo
+              em diagnóstico e diagnóstico em ação.
+            </p>
+          </div>
+
+          <div class="faq-grid">
+            <details open>
+              <summary>Minha empresa já atende bem. Ainda faz sentido participar?</summary>
+              <p>Sim. Muitas empresas atendem com boa intenção, mas ainda perdem clientes por demora, desalinhamento entre áreas, pós-venda fraco e processos que cansam o cliente. O treinamento ajuda você a sair da percepção e enxergar a jornada com método.</p>
+            </details>
+            <details>
+              <summary>Como saber se a jornada do cliente está prejudicando minha receita?</summary>
+              <p>Observe sinais como baixa recompra, reclamações repetidas, clientes que somem após a compra, equipe sempre resolvendo urgências, avaliações negativas e aumento do esforço comercial. Esses sintomas raramente são isolados; geralmente apontam falhas na experiência.</p>
+            </details>
+            <details>
+              <summary>Vou conseguir aplicar mesmo sem ter uma área de Customer Experience?</summary>
+              <p>Sim. Customer Experience não começa com um departamento novo. Começa com visão, clareza da jornada, responsabilidade entre áreas e decisões melhores sobre atendimento, processos, comunicação e pós-venda.</p>
+            </details>
+            <details>
+              <summary>Por que eu deveria ir presencialmente em vez de ver conteúdos soltos?</summary>
+              <p>Porque um problema de jornada exige profundidade. No presencial, você para a rotina, conecta ideias, discute situações reais e ganha clareza sobre pontos que normalmente passam despercebidos no dia a dia da operação.</p>
+            </details>
+            <details>
+              <summary>Posso deixar esse tema para depois?</summary>
+              <p>Pode, mas a jornada do cliente não pausa. Enquanto ela não é analisada, cada atendimento confuso, promessa quebrada ou pós-venda esquecido continua afetando confiança, reputação, recompra e indicação.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="price-section">
+        <div class="wrap price-box">
+          <div class="price-copy">
+            <p class="eyebrow">Oferta especial de inscrição</p>
+            <h2>O custo de ignorar a jornada do cliente costuma ser muito maior do que o investimento para corrigir.</h2>
+            <p>
+              Um único cliente perdido, uma avaliação negativa ou uma recompra que não acontece pode custar mais do que
+              esta imersão. O Poder da Experiência foi criado para ajudar você a enxergar onde a relação quebra antes
+              que isso vire perda de receita.
+            </p>
+          </div>
+
+          <aside class="price-card" aria-label="Preço do treinamento">
+            <span class="old-price">De <strong>R$ 467</strong></span>
+            <span class="new-price">R$ 267</span>
+            <p>
+              Para empresários, gestores e equipes que querem parar de perder cliente por falhas invisíveis na jornada.
+            </p>
+            <a class="button" href="https://chk.eduzz.com/39ZRR4OEWE">
+              Garantir minha vaga
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <div class="wrap">
+          <p class="kicker">Inscrições abertas</p>
+          <h2>O cliente que você perde amanhã pode estar dando sinais hoje.</h2>
+          <p>
+            A questão é se sua empresa sabe ler esses sinais antes que eles virem cancelamento, silêncio, reclamação
+            pública ou compra no concorrente. Venha para O Poder da Experiência e aprenda a transformar jornada em
+            vantagem competitiva.
+          </p>
+          <div class="hero-actions" style="justify-content: center">
+            <a class="button" href="https://chk.eduzz.com/39ZRR4OEWE">
+              Garantir minha vaga
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">O Poder da Experiência | Treinamento presencial em Alphaville, SP</div>
+    </footer>
+    <script>
+      const quiz = document.querySelector("#journeyQuiz");
+      const result = document.querySelector("#quizResult");
+
+      if (quiz && result) {
+        quiz.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const answers = Array.from(new FormData(quiz).values()).map(Number);
+
+          if (answers.length < 4) {
+            result.className = "diagnostic-result is-visible";
+            result.innerHTML = "<strong>Responda todas as perguntas.</strong><p>O diagnóstico só faz sentido se você olhar para a jornada inteira, não apenas para um pedaço dela.</p>";
+            return;
+          }
+
+          const score = answers.reduce((sum, value) => sum + value, 0);
+          let title = "Alerta amarelo: sua jornada já está criando atrito.";
+          let message = "Ainda parece controlável, mas os sinais existem. O treinamento vai ajudar você a identificar onde a experiência começa a perder força antes que isso vire perda de cliente.";
+
+          if (score >= 5) {
+            title = "Tratamento de choque: sua jornada pode estar custando clientes agora.";
+            message = "Quando o cliente precisa insistir, repetir, esperar, cobrar e torcer para alguém assumir responsabilidade, ele começa a se despedir antes de cancelar. Você precisa estar neste treinamento para enxergar e corrigir esses pontos com método.";
+          } else if (score <= 2) {
+            title = "Bom sinal, mas não confunda ausência de reclamação com lealdade.";
+            message = "Mesmo empresas que atendem bem podem ter pontos cegos na jornada. O treinamento vai ajudar você a fortalecer o que já funciona e evitar que pequenas falhas cresçam em silêncio.";
+          }
+
+          result.className = "diagnostic-result is-visible";
+          result.innerHTML = `<strong>${title}</strong><p>${message}</p>`;
+        });
+      }
+    </script>
+  </body>
+</html>
