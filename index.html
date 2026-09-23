@@ -8,6 +8,23 @@
       name="description"
       content="Treinamento presencial e imersivo com Rodrigo Bueno para corrigir falhas na jornada do cliente, proteger receita e transformar atendimento em fidelização."
     />
+    <!-- Meta Pixel: DNC Engage -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '2515222672332704');
+      fbq('track', 'PageView');
+      fbq('track', 'ViewContent', {
+        content_name: 'O Poder da Experiência',
+        content_category: 'Treinamento presencial',
+        value: 267,
+        currency: 'BRL'
+      });
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2515222672332704&ev=PageView&noscript=1" alt="" /></noscript>
     <style>
       :root {
         --ink: #07101f;
@@ -1284,6 +1301,33 @@
       <div class="wrap">O Poder da Experiência | Treinamento presencial em Alphaville, SP</div>
     </footer>
     <script>
+      // Checkout Eduzz: repassa UTMs/fbclid e dispara InitiateCheckout no clique
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const keep = new URLSearchParams();
+        params.forEach((value, key) => {
+          if (/^utm_|^fbclid$|^src$|^sck$/.test(key)) keep.set(key, value);
+        });
+
+        document.querySelectorAll('a[href*="chk.eduzz.com"]').forEach((link) => {
+          if (keep.toString()) {
+            const url = new URL(link.href);
+            keep.forEach((value, key) => url.searchParams.set(key, value));
+            link.href = url.toString();
+          }
+          link.addEventListener("click", () => {
+            if (window.fbq) {
+              fbq("track", "InitiateCheckout", {
+                content_name: "O Poder da Experiência",
+                value: 267,
+                currency: "BRL",
+                num_items: 1
+              });
+            }
+          });
+        });
+      })();
+
       const quiz = document.querySelector("#journeyQuiz");
       const result = document.querySelector("#quizResult");
 
