@@ -17,8 +17,8 @@
 
       // Boleto gerado ainda não é venda paga: a Eduzz manda para ?status=boleto
       (function () {
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('status') === 'boleto') return;
+        // Checa a URL inteira: a Eduzz pode anexar parâmetros com um segundo "?"
+        if (/status=boleto/.test(window.location.href)) return;
 
         // Evita contar a mesma compra duas vezes se a página for recarregada
         const key = 'opde_purchase_tracked';
@@ -406,7 +406,7 @@
     </footer>
 
     <script>
-      if (new URLSearchParams(window.location.search).get("status") === "boleto") {
+      if (/status=boleto/.test(window.location.href)) {
         document.body.classList.add("is-boleto");
       }
 
