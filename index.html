@@ -969,6 +969,22 @@
         color: var(--muted);
         font-size: 0.78rem;
       }
+      .lead-privacy summary {
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .lead-privacy-text {
+        display: grid;
+        gap: 6px;
+        margin-top: 8px;
+        padding: 12px;
+        border-radius: var(--radius);
+        background: rgba(2, 7, 18, 0.45);
+      }
+      .lead-privacy-text p {
+        margin: 0;
+      }
     </style>
   </head>
   <body>
@@ -1420,7 +1436,16 @@
           </div>
           <p class="lead-error" id="leadError" role="alert" hidden></p>
           <button class="button" type="submit" id="leadSubmit">Continuar para o pagamento</button>
-          <p class="lead-privacy">Usamos seus dados só para falar sobre o treinamento O Poder da Experiência.</p>
+          <details class="lead-privacy">
+            <summary>Ao continuar, você concorda com o uso dos seus dados conforme o aviso de privacidade.</summary>
+            <div class="lead-privacy-text">
+              <p><strong>Quem trata seus dados:</strong> DNC GESTÃO E SERVIÇOS LTDA, organizadora do treinamento O Poder da Experiência.</p>
+              <p><strong>Quais dados:</strong> nome, WhatsApp, e-mail e a origem do seu acesso (anúncio ou link que trouxe você até aqui).</p>
+              <p><strong>Para quê:</strong> concluir sua inscrição, enviar informações sobre o evento e ajudar você pelo WhatsApp, e-mail ou telefone se o pagamento não for concluído. Também medimos o desempenho dos nossos anúncios.</p>
+              <p><strong>Com quem compartilhamos:</strong> com a Eduzz, que processa o pagamento, e com as ferramentas de atendimento e de anúncios que usamos. Não vendemos seus dados.</p>
+              <p><strong>Seus direitos (LGPD):</strong> você pode pedir acesso, correção ou exclusão dos seus dados e deixar de receber contatos a qualquer momento, pelo e-mail contato@dncengage.com.br.</p>
+            </div>
+          </details>
         </form>
       </div>
     </div>
@@ -1441,6 +1466,7 @@
         const enviar = document.getElementById("leadSubmit");
         let destino = null;
         let enviado = false;
+        let ultimo = {};
 
         const irParaCheckout = () => {
           if (window.fbq) {
@@ -1454,9 +1480,21 @@
           window.location.href = destino;
         };
 
+        // Leva nome, e-mail e celular já preenchidos para o checkout da Eduzz
+        // (parâmetros `nome`, `email` e `cel`; o celular vai com DDD e sem o 55).
+        const preencherCheckout = (dados) => {
+          const url = new URL(destino);
+          url.searchParams.set("nome", String(dados.nome || "").trim());
+          url.searchParams.set("email", String(dados.email || "").trim().toLowerCase());
+          let cel = String(dados.telefone || "").replace(/\D/g, "");
+          if (cel.length > 11 && cel.startsWith("55")) cel = cel.slice(2);
+          url.searchParams.set("cel", cel);
+          destino = url.toString();
+        };
+
         const abrir = (href) => {
           destino = href;
-          if (enviado) return irParaCheckout();
+          if (enviado) { preencherCheckout(ultimo); return irParaCheckout(); }
           erro.hidden = true;
           modal.hidden = false;
           document.getElementById("leadNome").focus();
@@ -1517,6 +1555,8 @@
           }
 
           enviado = true;
+          ultimo = dados;
+          preencherCheckout(dados);
           if (window.fbq) fbq("track", "Lead", { content_name: "O Poder da Experiência", value: 267, currency: "BRL" });
           irParaCheckout();
         });
