@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Vaga garantida | O Poder da Experiência</title>
+    <!-- Meta Pixel: DNC Engage -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '2515222672332704');
+      fbq('track', 'PageView');
+
+      // Boleto gerado ainda não é venda paga: a Eduzz manda para ?status=boleto
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('status') === 'boleto') return;
+
+        // Evita contar a mesma compra duas vezes se a página for recarregada
+        const key = 'opde_purchase_tracked';
+        try {
+          if (localStorage.getItem(key)) return;
+          localStorage.setItem(key, String(Date.now()));
+        } catch (e) {}
+
+        fbq('track', 'Purchase', {
+          content_name: 'O Poder da Experiência',
+          content_category: 'Treinamento presencial',
+          value: 267,
+          currency: 'BRL',
+          num_items: 1
+        });
+      })();
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2515222672332704&ev=PageView&noscript=1" alt="" /></noscript>
+    <style>
+      :root {
+        --ink: #07101f;
+        --deep: #020712;
+        --panel: #07172d;
+        --panel-2: #0b2340;
+        --paper: #f4f8ff;
+        --paper-2: #dce8f7;
+        --muted: #aab9ce;
+        --gold: #ff4d1f;
+        --gold-2: #ff8a2a;
+        --teal: #46a6ff;
+        --whats: #25d366;
+        --line: rgba(244, 248, 255, 0.14);
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+        --radius: 8px;
+        --max: 1160px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--paper);
+        background: var(--deep);
+        line-height: 1.55;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(2, 7, 18, 0.9);
+        backdrop-filter: blur(16px);
+      }
+
+      .wrap {
+        width: min(var(--max), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar-inner {
+        min-height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand {
+        font-weight: 850;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      .nav-meta {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        min-height: calc(100svh - 68px);
+        display: grid;
+        align-items: center;
+        padding: 72px 0 56px;
+        background:
+          linear-gradient(90deg, rgba(2, 7, 18, 0.98) 0%, rgba(5, 17, 38, 0.9) 42%, rgba(5, 17, 38, 0.3) 100%),
+          url("assets/rodrigo-bueno-treinamento.png") center right / min(52vw, 620px) auto no-repeat,
+          linear-gradient(135deg, rgba(4, 46, 94, 0.78), rgba(2, 7, 18, 0.9)),
+          radial-gradient(circle at 80% 18%, rgba(70, 166, 255, 0.22), transparent 34%),
+          var(--deep);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 130px;
+        background: linear-gradient(0deg, var(--deep), transparent);
+        pointer-events: none;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        max-width: 700px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 18px;
+        color: var(--gold-2);
+        font-size: 0.82rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 2px;
+        background: var(--gold);
+      }
+
+      h1,
+      h2,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 22px;
+        font-size: clamp(2.5rem, 5.4vw, 5.2rem);
+        line-height: 0.95;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        font-weight: 900;
+      }
+
+      .lead {
+        max-width: 620px;
+        margin-bottom: 30px;
+        color: var(--paper-2);
+        font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+      }
+
+      .whats-card {
+        margin-bottom: 30px;
+        padding: 26px;
+        border: 1px solid rgba(37, 211, 102, 0.38);
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, rgba(11, 35, 64, 0.92), rgba(7, 23, 45, 0.92));
+        box-shadow: var(--shadow);
+      }
+
+      .step {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: var(--whats);
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .whats-card h2 {
+        margin-bottom: 10px;
+        font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+        line-height: 1.15;
+      }
+
+      .whats-card p {
+        margin-bottom: 20px;
+        color: var(--muted);
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 54px;
+        padding: 0 26px;
+        border-radius: var(--radius);
+        font-weight: 850;
+        font-size: 1.02rem;
+        text-decoration: none;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+      }
+
+      .button.whats {
+        border: 1px solid rgba(37, 211, 102, 0.7);
+        background: linear-gradient(180deg, #3ee07f 0%, #25d366 58%, #1aa851 100%);
+        color: #04210f;
+        box-shadow: 0 14px 30px rgba(37, 211, 102, 0.25);
+      }
+
+      .button.whats:hover {
+        box-shadow: 0 18px 42px rgba(37, 211, 102, 0.36);
+      }
+
+      .button svg {
+        width: 22px;
+        height: 22px;
+        flex: none;
+      }
+
+      .facts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(7, 23, 45, 0.72);
+      }
+
+      .fact {
+        padding: 16px 18px;
+      }
+
+      .fact + .fact {
+        border-left: 1px solid var(--line);
+      }
+
+      .fact span {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--teal);
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .fact strong {
+        font-size: 1rem;
+      }
+
+      .note {
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .boleto-only {
+        display: none;
+      }
+
+      body.is-boleto .boleto-only {
+        display: block;
+      }
+
+      body.is-boleto .paid-only {
+        display: none;
+      }
+
+      footer {
+        padding: 28px 0;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.88rem;
+        text-align: center;
+      }
+
+      @media (max-width: 760px) {
+        .hero {
+          padding: 44px 0 40px;
+          background:
+            linear-gradient(180deg, rgba(2, 7, 18, 0.82) 0%, rgba(2, 7, 18, 0.96) 55%),
+            url("assets/rodrigo-bueno-treinamento.png") top center / cover no-repeat,
+            var(--deep);
+        }
+
+        .nav-meta {
+          display: none;
+        }
+
+        .whats-card {
+          padding: 20px;
+        }
+
+        .button {
+          width: 100%;
+          white-space: normal;
+          text-align: center;
+        }
+
+        .facts {
+          grid-template-columns: 1fr;
+        }
+
+        .fact + .fact {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap topbar-inner">
+        <div class="brand">O Poder da Experiência</div>
+        <div class="nav-meta">17 de outubro | Alphaville</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap content">
+          <p class="eyebrow paid-only">Inscrição confirmada</p>
+          <p class="eyebrow boleto-only">Falta só um passo</p>
+
+          <h1 class="paid-only">Sua vaga está garantida</h1>
+          <h1 class="boleto-only">Seu boleto foi gerado</h1>
+
+          <p class="lead paid-only">
+            Parabéns pela decisão. Você acaba de garantir seu lugar na imersão presencial
+            O Poder da Experiência. Os dados de acesso chegam no seu e-mail.
+          </p>
+          <p class="lead boleto-only">
+            Sua vaga fica garantida assim que o pagamento for compensado (até 3 dias úteis).
+            Enquanto isso, entre no grupo para receber os avisos do evento.
+          </p>
+
+          <div class="whats-card">
+            <span class="step">Próximo passo obrigatório</span>
+            <h2>Entre agora no grupo exclusivo dos participantes</h2>
+            <p>
+              É por lá que vamos enviar o endereço completo, orientações de chegada,
+              materiais de preparação e todos os avisos importantes antes do dia 17.
+            </p>
+            <a
+              class="button whats"
+              id="whatsButton"
+              href="https://chat.whatsapp.com/CsW8aHGw3E9K5ACkWizTJh?mode=gi_t"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                <path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01Zm-7.01 15.24h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.22-8.24 8.22Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.25 3.75.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z" />
+              </svg>
+              Entrar no grupo do WhatsApp
+            </a>
+          </div>
+
+          <div class="facts">
+            <div class="fact">
+              <span>Data</span>
+              <strong>17 de outubro de 2026</strong>
+            </div>
+            <div class="fact">
+              <span>Horário</span>
+              <strong>8h30 às 19h</strong>
+            </div>
+            <div class="fact">
+              <span>Local</span>
+              <strong>Alphaville, Barueri - SP</strong>
+            </div>
+          </div>
+
+          <p class="note">
+            Dúvidas? Escreva para contato@dncengage.com.br.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">O Poder da Experiência | Treinamento presencial em Alphaville, SP</div>
+    </footer>
+
+    <script>
+      if (new URLSearchParams(window.location.search).get("status") === "boleto") {
+        document.body.classList.add("is-boleto");
+      }
+
+      document.getElementById("whatsButton").addEventListener("click", () => {
+        if (window.fbq) fbq("trackCustom", "EntrouGrupoWhatsApp");
+      });
+    </script>
+  </body>
+</html>
